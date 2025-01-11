@@ -9,7 +9,7 @@ jobs:
   update-traffic:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Fetch Stats for All Repos
@@ -17,6 +17,8 @@ jobs:
           # Fetch all repository names in the organization
           repos=$(curl -H "Authorization: token ${{ secrets.README_TOKEN }}" \
           https://api.github.com/orgs/aitechnav/repos | jq -r '.[].name')
+
+          echo "Repositories fetched: $repos"
 
           # Initialize counters for total views and uniques
           total_views=0
@@ -28,9 +30,13 @@ jobs:
             response=$(curl -H "Authorization: token ${{ secrets.README_TOKEN }}" \
             https://api.github.com/repos/aitechnav/$repo/traffic/views)
 
+            # Debug the raw API response
+            echo "Raw response for $repo:"
+            echo "$response"
+
             # Extract views and uniques using jq
-            repo_views=$(echo "$response" | jq '.count // 0')
-            repo_uniques=$(echo "$response" | jq '.uniques // 0')
+            repo_views=$(echo "$response" | jq -r '.count // 0')
+            repo_uniques=$(echo "$response" | jq -r '.uniques // 0')
 
             # Add to totals
             total_views=$((total_views + repo_views))
@@ -44,13 +50,18 @@ jobs:
           echo "total_uniques=$total_uniques" >> $GITHUB_ENV
         shell: bash
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
       - name: Update README
         run: |
           # Replace placeholders in README.md with total stats
           sed -i "s/<!-- VIEWS -->/$total_views/" README.md
           sed -i "s/<!-- UNIQUES -->/$total_uniques/" README.md
 
-          # Debug changes to README.md
+          # Debug the modified README.md content
           echo "Modified README.md content:"
           cat README.md
 
@@ -62,5 +73,4 @@ jobs:
 
           # Commit and push changes
           git add README.md
-          git commit -m "Update traffic stats"
-          git push
+          git commit -m "Upda
