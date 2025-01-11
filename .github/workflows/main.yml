@@ -1,0 +1,54 @@
+name: Update Traffic Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily
+  workflow_dispatch:
+
+jobs:
+  update-traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Fetch Stats for All Repos
+        run: |
+          # Fetch all repository names in the organization
+          repos=$(curl -H "Authorization: token ${{ secrets.README_TOKEN }}" \
+          https://api.github.com/orgs/aitechnav/repos | jq -r '.[].name')
+
+          # Initialize counters for total views and uniques
+          total_views=0
+          total_uniques=0
+
+          # Loop through each repository to fetch traffic stats
+          for repo in $repos; do
+            echo "Fetching stats for $repo"
+            response=$(curl -H "Authorization: token ${{ secrets.README_TOKEN }}" \
+            https://api.github.com/repos/aitechnav/$repo/traffic/views)
+
+            # Extract views and uniques using jq
+            repo_views=$(echo "$response" | jq '.count // 0')
+            repo_uniques=$(echo "$response" | jq '.uniques // 0')
+
+            # Add to totals
+            total_views=$((total_views + repo_views))
+            total_uniques=$((total_uniques + repo_uniques))
+
+            echo "Stats for $repo - Views: $repo_views, Uniques: $repo_uniques"
+          done
+
+          # Save the totals to a temporary file for the next step
+          echo "total_views=$total_views" >> $GITHUB_ENV
+          echo "total_uniques=$total_uniques" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Update README
+        run: |
+          # Replace placeholders in README.md with total stats
+          sed -i "s/<!-- VIEWS -->/$total_views/" README.md
+          sed -i "s/<!-- UNIQUES -->/$total_uniques/" README.md
+          git add README.md
+          git commit -m "Update traffic stats"
+          git push
