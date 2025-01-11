@@ -44,6 +44,11 @@ jobs:
           echo "total_uniques=$total_uniques" >> $GITHUB_ENV
         shell: bash
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
       - name: Update README
         run: |
           # Replace placeholders in README.md with total stats
