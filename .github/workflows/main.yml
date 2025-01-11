@@ -2,7 +2,7 @@ name: Update Traffic Stats
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily
+    #- cron: '0 0 * * *' # Runs daily
   workflow_dispatch:
 
 jobs:
