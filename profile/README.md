@@ -17,11 +17,11 @@ We are researchers specializing in end-to-end AI solution development.
 
 <div align="center">
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=aitechnav&show_icons=true&hide=&count_private=true&title_color=444e59&text_color=3382ed&icon_color=ef4444&bg_color=ffffff&hide_border=true&show_icons=true)](https://github.com/aitechnav)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=tyagian/orgs&show_icons=true&hide=&count_private=true&title_color=444e59&text_color=3382ed&icon_color=ef4444&bg_color=ffffff&hide_border=true&show_icons=true)](https://github.com/aitechnav)
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=aitechnav&stroke=3382ed&background=ffffff&ring=444e59&fire=444e59&currStreakNum=3382ed&currStreakLabel=444e59&sideNums=3382ed&sideLabels=3382ed&dates=3382ed&hide_border=true)](https://github.com/aitechnav)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=tyagian/orgs&stroke=3382ed&background=ffffff&ring=444e59&fire=444e59&currStreakNum=3382ed&currStreakLabel=444e59&sideNums=3382ed&sideLabels=3382ed&dates=3382ed&hide_border=true)](https://github.com/aitechnav)
 
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=aitechnav&langs_count=6&title_color=444e59&text_color=3382ed&icon_color=ef4444&bg_color=ffffff&hide_border=true&layout=compact)](https://github.com/aitechnav)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=tyagian/orgs&langs_count=6&title_color=444e59&text_color=3382ed&icon_color=ef4444&bg_color=ffffff&hide_border=true&layout=compact)](https://github.com/aitechnav)
 
 </div>
 
