@@ -15,6 +15,9 @@ We are researchers specializing in end-to-end AI solution development.
 
 ## 📈 GitHub Statistics
 
+![Visitor Count](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAITECHNAV&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Visitors&edge_flat=false)
+
+
 <div align="center">
 
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=tyagian/orgs&show_icons=true&hide=&count_private=true&title_color=444e59&text_color=3382ed&icon_color=ef4444&bg_color=ffffff&hide_border=true&show_icons=true)](https://github.com/aitechnav)
