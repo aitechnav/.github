@@ -15,8 +15,6 @@ We are researchers specializing in end-to-end AI solution development.
 
 ## 📈 GitHub Statistics
 
-**Total Views**: <!-- VIEWS -->
-**Unique Visitors**: <!-- UNIQUES -->
 
 ![GitHub Stars](https://img.shields.io/github/stars/aitechnav/PythonDataScience?style=social)
 
