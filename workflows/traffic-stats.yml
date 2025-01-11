@@ -14,8 +14,9 @@ jobs:
 
       - name: Fetch Traffic Data
         run: |
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/aitechnav/PythonDataScience/traffic/views > traffic.json
+          curl -H "Authorization: token ${{ secrets.README_TOKEN }}" \
+          https://api.github.com/repos/aitechnav/your-repo/traffic/views > traffic.json
+
 
       - name: Update README
         run: |
